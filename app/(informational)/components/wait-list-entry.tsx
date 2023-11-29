@@ -3,7 +3,7 @@
 import { ContinueButton } from "@/components/general/continue-button";
 import Loading from "@/components/general/loading";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
