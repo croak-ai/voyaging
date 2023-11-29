@@ -1,25 +1,27 @@
-import { ArrowRight } from 'lucide-react';
-import { Button } from '../ui/button';
+import { ArrowRight } from "lucide-react";
+import { Button } from "../ui/button";
 
 export const ContinueButton = ({
-  name = 'Continue',
+  name = "Continue",
   type,
   variant,
   disabled,
   size,
-  onClick
+  className,
+  onClick,
 }: {
   name?: string;
   disabled?: boolean;
-  type?: 'button' | 'submit' | 'reset';
+  type?: "button" | "submit" | "reset";
   variant?:
-    | 'default'
-    | 'destructive'
-    | 'outline'
-    | 'secondary'
-    | 'ghost'
-    | 'link';
-  size?: 'default' | 'xs' | 'sm' | 'lg' | 'icon' | null | undefined;
+    | "default"
+    | "destructive"
+    | "outline"
+    | "secondary"
+    | "ghost"
+    | "link";
+  className?: string;
+  size?: "default" | "xs" | "sm" | "lg" | "icon" | null | undefined;
   onClick?: () => void;
 }) => {
   return (
@@ -28,7 +30,7 @@ export const ContinueButton = ({
       variant={variant}
       size={size}
       type={type}
-      className="transition-all duration-500 ease-in-out group"
+      className={`transition-all duration-500 ease-in-out group ${className}`}
       onClick={onClick}
     >
       <div className="flex items-center">
