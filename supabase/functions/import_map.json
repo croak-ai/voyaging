@@ -13,6 +13,7 @@
     "mdast-util-to-string": "https://esm.sh/v132/mdast-util-to-string@4.0.0",
     "unist-builder": "https://esm.sh/v132/unist-builder@4.0.0",
     "mdast": "https://esm.sh/v132/@types/mdast@4.0.0/index.d.ts",
+    "upstash_redis": "https://deno.land/x/upstash_redis@v1.19.3/mod.ts",
 
     "https://esm.sh/v132/decode-named-character-reference@1.0.2/esnext/decode-named-character-reference.mjs": "https://esm.sh/decode-named-character-reference@1.0.2?target=deno"
   }
