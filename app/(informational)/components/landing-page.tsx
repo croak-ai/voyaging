@@ -11,6 +11,8 @@ import { firaSansLogo } from "@/lib/fonts";
 import Lottie from "lottie-react";
 import animationData from "@/assets/ship-on-water.json";
 import WaitlistForm from "./wait-list-entry";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 export default function LandingPage() {
   return (
     <>
@@ -39,6 +41,12 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {process.env.NODE_ENV === "development" && (
+        <Link href="/login">
+          <Button variant={"link"}>Dev Log in</Button>
+        </Link>
+      )}
       {/* <section
         id="features"
         className="container space-y-6 bg-slate-50 py-8 dark:bg-transparent md:py-12 lg:py-24"

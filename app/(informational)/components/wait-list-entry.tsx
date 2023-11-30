@@ -81,7 +81,7 @@ export const WaitlistForm = () => {
   return (
     <>
       <Dialog onOpenChange={setOpen} open={open}>
-        <DialogContent className="sm:w-[475px]">
+        <DialogContent className="sm:w-[555px]">
           <DialogHeader>
             <DialogTitle className="text-2xl">
               You're In The Waitlist!

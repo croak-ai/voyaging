@@ -12,13 +12,13 @@ export default async function Index() {
           </p>
           <div className="flex flex-row gap-2">
             <Link
-              href="/files"
+              href="/app/files"
               className="bg-foreground py-3 px-6 rounded-lg font-mono text-sm text-background"
             >
               Upload
             </Link>
             <Link
-              href="/chat"
+              href="/app/chat"
               className="bg-foreground py-3 px-6 rounded-lg font-mono text-sm text-background"
             >
               Chat

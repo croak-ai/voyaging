@@ -1,6 +1,6 @@
 import { Redis } from "upstash_redis";
 
-console.log(`Function "upstash-redis-counter" up and running!`);
+console.log(`Function "email-waitlist-entry" up and running!`);
 export const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
@@ -8,9 +8,24 @@ export const corsHeaders = {
 };
 Deno.serve(async (_req) => {
   try {
+    const url = Deno.env.get("UPSTASH_REDIS_REST_URL");
+    const token = Deno.env.get("UPSTASH_REDIS_REST_TOKEN");
+
+    if (!url || !token) {
+      return new Response(
+        JSON.stringify({
+          error: "Missing environment variables.",
+        }),
+        {
+          status: 500,
+          headers: corsHeaders,
+        }
+      );
+    }
+
     const redis = new Redis({
-      url: Deno.env.get("UPSTASH_REDIS_REST_URL")!,
-      token: Deno.env.get("UPSTASH_REDIS_REST_TOKEN")!,
+      url: url,
+      token: token,
     });
 
     const urlParts = _req.url.split("/");
