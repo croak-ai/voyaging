@@ -55,7 +55,7 @@ export default function SignInForm() {
     {}
   );
   //   const { data: session } = useSession();
-  const [username, setUsername] = React.useState<string>("");
+  const [email, setEmail] = React.useState<string>("");
   const [password, setPassword] = React.useState<string>("");
   const [errorState, setErrorState] = React.useState<Error | null>(null);
 
@@ -267,7 +267,7 @@ export default function SignInForm() {
                 </CardTitle>
 
                 <div className="flex flex-col gap-1">
-                  <div className="text-sm font-bold mb-0">Username</div>
+                  <div className="text-sm font-bold mb-0">Email</div>
 
                   <Label className="sr-only" htmlFor="username">
                     Email
@@ -276,8 +276,8 @@ export default function SignInForm() {
                   <Input
                     id="email"
                     name="email"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="test@testing.com is a valid email"
                     type="email"
                     autoCapitalize="none"
@@ -319,10 +319,7 @@ export default function SignInForm() {
                     Sign In
                   </Button> */}
                   <Button variant="outline">Sign In</Button>
-                  <Button
-                    formAction="/api/auth/sign-up"
-                    className="border border-gray-700 rounded px-4 py-2 text-black mb-2"
-                  >
+                  <Button variant="link" formAction="/signup" className="mt-2">
                     Sign Up
                   </Button>
                 </div>
