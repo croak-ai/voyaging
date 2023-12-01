@@ -1,6 +1,4 @@
 import Link from "next/link";
-import dynamic from "next/dynamic";
-
 import SignUpForm from "./components/SignUpForm";
 import { Button } from "@/components/ui/button";
 
