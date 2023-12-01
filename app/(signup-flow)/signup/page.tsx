@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 
-import SignUpForm from '@/app/signup/components/signUpForm';
+import SignUpForm from './components/SignUpForm';
 
 export default function SignUpPage() {
 

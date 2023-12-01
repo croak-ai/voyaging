@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import * as React from "react";
 
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -319,8 +319,8 @@ export default function SignInForm() {
                     Sign In
                   </Button> */}
                   <Button variant="outline">Sign In</Button>
-                  <Button variant="link" formAction="/signup" className="mt-2">
-                    Sign Up
+                  <Button variant="link" className="mt-2">
+                    <Link href="/signup">Sign Up</Link>
                   </Button>
                 </div>
               </div>
