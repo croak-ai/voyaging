@@ -1,53 +1,24 @@
-'use client';
+"use client";
 
-import * as React from 'react';
+import * as React from "react";
 
-import { Button } from '@/components/ui/button';
-import { Icons } from '@/components/ui/icons';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { cn } from '@/lib/utils';
-import { useRouter } from 'next/navigation';
+import { Button } from "@/components/ui/button";
+import { Icons } from "@/components/ui/icons";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { cn } from "@/lib/utils";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export default function SignUpForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const router = useRouter();
-
-//   async function onSubmit(event: React.SyntheticEvent) {
-//     event.preventDefault();
-//     setIsLoading(true);
-
-//     // Get form data
-//     const formData = new FormData(event.currentTarget as HTMLFormElement);
-
-//     try {
-//       const _response = await fetch('/signup/api', {
-//         method: 'POST',
-//         body: formData
-//       });
-
-//       // Handle success response
-
-//       router.push('/overview');
-//     } catch (error) {
-//       console.error('error signing up:', error);
-//     } finally {
-//       setIsLoading(false);
-//     }
-
-//     setTimeout(() => {
-//       setIsLoading(false);
-//     }, 3000);
-//   }
 
   return (
-    <div className={cn('grid gap-6', className)} {...props}>
+    <div className={cn("grid gap-6", className)} {...props}>
       <form action="/api/auth/sign-up" method="post">
         <div className="grid gap-2">
           <div className="grid gap-1">
-            <div className="text-white text-sm mb-0">First Name</div>
+            <div className="text-sm mb-0">First Name</div>
             <Label className="sr-only" htmlFor="firstname">
               First Name
             </Label>
@@ -61,11 +32,11 @@ export default function SignUpForm({ className, ...props }: UserAuthFormProps) {
               autoCorrect="off"
               disabled={isLoading}
               required
-              className="bg-black border text-white"
+              className="border"
             />
           </div>
           <div className="grid gap-1">
-            <div className="text-white text-sm mb-0">Last Name</div>
+            <div className="text-sm mb-0">Last Name</div>
             <Label className="sr-only" htmlFor="lastname">
               Last Name
             </Label>
@@ -79,11 +50,11 @@ export default function SignUpForm({ className, ...props }: UserAuthFormProps) {
               autoCorrect="off"
               disabled={isLoading}
               required
-              className="bg-black border text-white"
+              className="border"
             />
           </div>
           <div className="grid gap-1">
-            <div className="text-white text-sm mb-0">Email</div>
+            <div className="text-sm mb-0">Email</div>
             <Label className="sr-only" htmlFor="email">
               Email
             </Label>
@@ -97,11 +68,11 @@ export default function SignUpForm({ className, ...props }: UserAuthFormProps) {
               autoCorrect="off"
               disabled={isLoading}
               required
-              className="bg-black border text-white"
+              className="border"
             />
           </div>
           <div className="grid gap-1">
-            <div className="text-white text-sm mb-0">Password</div>
+            <div className="text-sm mb-0">Password</div>
             <Label className="sr-only" htmlFor="password">
               Password
             </Label>
@@ -115,12 +86,12 @@ export default function SignUpForm({ className, ...props }: UserAuthFormProps) {
               autoCorrect="off"
               disabled={isLoading}
               required
-              className="bg-black border text-white"
+              className="border"
             />
           </div>
 
           <div className="grid gap-1">
-            <div className="text-white text-sm mb-0">Repeat your password</div>
+            <div className="text-sm mb-0">Repeat your password</div>
             <Label className="sr-only" htmlFor="passwordrepeat">
               PasswordRepeat
             </Label>
@@ -133,7 +104,7 @@ export default function SignUpForm({ className, ...props }: UserAuthFormProps) {
               autoCorrect="off"
               disabled={isLoading}
               required
-              className="bg-black border text-white"
+              className="border"
             />
           </div>
           <Button disabled={isLoading}>
@@ -144,19 +115,6 @@ export default function SignUpForm({ className, ...props }: UserAuthFormProps) {
           </Button>
         </div>
       </form>
-      <div className="relative flex justify-center text-xs uppercase">
-        <span className="bg-transparent bars px-2 text-white text-muted-foreground">
-          Or continue with
-        </span>
-      </div>
-      <Button variant="outline" type="button" disabled={isLoading}>
-        {isLoading ? (
-          <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-        ) : (
-          <Icons.google className="mr-2 h-4 w-4" />
-        )}{' '}
-        Google
-      </Button>
     </div>
   );
 }
