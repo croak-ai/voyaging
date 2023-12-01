@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { PropsWithChildren } from 'react';
 
-export default async function LoginLayout({ children }: PropsWithChildren) {
+export default async function SigninLayout({ children }: PropsWithChildren) {
   const supabase = createServerComponentClient({ cookies });
 
   const {

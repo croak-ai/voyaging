@@ -43,7 +43,7 @@ export default function LandingPage() {
       </section>
 
       {process.env.NODE_ENV === "development" && (
-        <Link href="/login">
+        <Link href="/signin">
           <Button variant={"link"}>Dev Log in</Button>
         </Link>
       )}
