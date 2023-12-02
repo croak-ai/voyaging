@@ -1,9 +1,8 @@
 import { router } from "./trpc";
+import { botRouter } from "./routes/bot";
 
-const appRouter = router({
-  // ...
+export const appRouter = router({
+  bot: botRouter,
 });
 
-// Export type router type signature,
-// NOT the router itself.
 export type AppRouter = typeof appRouter;
