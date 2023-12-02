@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { publicProcedure, router } from '../trpc';
-import { supabase } from '@/supabase';
+import { supabase } from '@/supabase/client';
  
 const appRouter = router({
   // ...
@@ -9,7 +9,7 @@ const appRouter = router({
     .query(async (opts) => {
       const { input } = opts;
       // Retrieve the user with the given ID
-      const user = await db.user.findById(input);
+      const user = await supabase.auth.getSession();
       return user;
     }),
 });
