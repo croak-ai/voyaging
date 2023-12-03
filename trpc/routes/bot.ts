@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { publicProcedure, router } from '../trpc';
+import { publicProcedure, router } from '../init/trpc';
 import { supabase } from '@/supabase/client';
  
 export const botRouter = router({

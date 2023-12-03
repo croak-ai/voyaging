@@ -1,5 +1,5 @@
 import { router } from "./trpc";
-import { botRouter } from "./routes/bot";
+import { botRouter } from "../routes/bot";
 
 export const appRouter = router({
   bot: botRouter,
