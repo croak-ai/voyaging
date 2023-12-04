@@ -3,7 +3,7 @@ import { publicProcedure, router } from '../init/trpc';
 import { supabase } from '@/supabase/client';
  
 export const botRouter = router({
-  userById: publicProcedure
+  botUser: publicProcedure
     .input(z.string())
     .query(async (opts) => {
       const { input } = opts;
