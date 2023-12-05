@@ -13,9 +13,6 @@ import { useEffect } from 'react';
 export default function ChatPage() {
   const supabase = createClientComponentClient<Database>();
 
-  const userData = trpc.bot.botUser.useQuery();
-
-  
   const generateEmbedding = usePipeline(
     "feature-extraction",
     "Supabase/gte-small"
