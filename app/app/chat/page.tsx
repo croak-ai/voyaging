@@ -1,19 +1,36 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { usePipeline } from '@/lib/hooks/use-pipeline';
-import { cn } from '@/lib/utils';
-import { Database } from '@/supabase/functions/_lib/database';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { useChat } from 'ai/react';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { usePipeline } from "@/lib/hooks/use-pipeline";
+import { cn } from "@/lib/utils";
+import { Database } from "@/supabase/functions/_lib/database";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { useChat } from "ai/react";
+//import { trpc } from "@/utils/trpc";
+//import { useEffect } from 'react';
 
 export default function ChatPage() {
   const supabase = createClientComponentClient<Database>();
 
+  // useEffect(() => {
+  //   const fetchBotData = async () => {
+  //     try {
+  //       const userData = await trpc.bot.botUser.useQuery();
+  //       // Process the botData or update state if needed
+  //       console.log('user Data:', userData);
+  //     } catch (error) {
+  //       // Handle error
+  //       console.error('Error fetching bot data:', error);
+  //     }
+  //   };
+
+  //   fetchBotData();
+  // }, []); // empty dependency array means this will run only once when the component mounts
+
   const generateEmbedding = usePipeline(
-    'feature-extraction',
-    'Supabase/gte-small'
+    "feature-extraction",
+    "Supabase/gte-small"
   );
 
   const { messages, input, handleInputChange, handleSubmit, isLoading } =
@@ -31,8 +48,8 @@ export default function ChatPage() {
             <div
               key={id}
               className={cn(
-                'rounded-xl bg-gray-500 text-white px-4 py-2 max-w-lg',
-                role === 'user' ? 'self-end bg-blue-600' : 'self-start'
+                "rounded-xl bg-gray-500 text-white px-4 py-2 max-w-lg",
+                role === "user" ? "self-end bg-blue-600" : "self-start"
               )}
             >
               {content}
@@ -64,11 +81,11 @@ export default function ChatPage() {
           onSubmit={async (e) => {
             e.preventDefault();
             if (!generateEmbedding) {
-              throw new Error('Unable to generate embeddings');
+              throw new Error("Unable to generate embeddings");
             }
 
             const output = await generateEmbedding(input, {
-              pooling: 'mean',
+              pooling: "mean",
               normalize: true,
             });
 

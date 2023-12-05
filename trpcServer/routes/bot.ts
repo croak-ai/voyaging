@@ -4,11 +4,11 @@ import { supabase } from '@/supabase/client';
  
 export const botRouter = router({
   botUser: publicProcedure
-    .input(z.string())
+    .input(z.string().nullish())
     .query(async (opts) => {
       const { input } = opts;
       // Retrieve the user with the given ID
-      const user = await supabase.auth.getSession();
-      return user;
+      //const user = await supabase.auth.getSession();
+      return 'Walsh';
     }),
 });
