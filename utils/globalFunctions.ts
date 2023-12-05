@@ -1,14 +1,30 @@
-import { toast } from '@/components/ui/use-toast';
-import { ToastActionElement } from '@/components/ui/toast';
+import { toast } from "@/components/ui/use-toast";
+import { ToastActionElement } from "@/components/ui/toast";
+
+export function getPublicUrl(): string {
+  if (process.env.NEXT_PUBLIC_BASE_URL) {
+    return process.env.NEXT_PUBLIC_BASE_URL.toString();
+  }
+
+  if (typeof window !== "undefined" && window.location.origin) {
+    return window.location.origin;
+  }
+
+  if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+    return "https://" + process.env.NEXT_PUBLIC_VERCEL_URL.toString();
+  }
+
+  return "URL_ERROR";
+}
 
 // These are errors that are expected: duplicate course, already enrolled, etc.
 export function toastError(error: string, action?: ToastActionElement) {
   toast({
-    title: 'Error',
-    icon: 'error_for_destructive_toasts',
-    variant: 'destructive',
+    title: "Error",
+    icon: "error_for_destructive_toasts",
+    variant: "destructive",
     description: error,
-    action: action
+    action: action,
   });
 }
 
@@ -18,10 +34,10 @@ export function toastWarning(
   action?: ToastActionElement | undefined
 ) {
   toast({
-    title: 'Warning',
-    icon: 'warning',
+    title: "Warning",
+    icon: "warning",
     description: warning,
-    action: action
+    action: action,
   });
 }
 
@@ -31,10 +47,9 @@ export function toastSuccess(
   action?: ToastActionElement | undefined
 ) {
   toast({
-    title: 'Success!',
-    icon: 'success',
+    title: "Success!",
+    icon: "success",
     description: successMessage,
-    action: action
+    action: action,
   });
 }
-

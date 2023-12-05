@@ -3,6 +3,7 @@ import { PropsWithChildren, Suspense } from "react";
 import "three-dots/dist/three-dots.css";
 import "./globals.css";
 import { Icons } from "@/components/ui/icons";
+import TRPC_Provider from "./_trpc/TRPC_Provider";
 //import { trpc } from "@/utils/trpc";
 
 export const metadata = {
@@ -22,13 +23,15 @@ async function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className="h-full">
       <body className="h-full">
-        <Toaster />
-        <main className="w-full grow bg-background flex flex-col items-center h-[calc(100%-5rem)]">
-          <Suspense fallback={<LoadingShip />}>{children}</Suspense>
-        </main>
+        <TRPC_Provider>
+          <Toaster />
+          <main className="w-full grow bg-background flex flex-col items-center h-[calc(100%-5rem)]">
+            <Suspense fallback={<LoadingShip />}>{children}</Suspense>
+          </main>
+        </TRPC_Provider>
       </body>
     </html>
   );
 }
 
-export default RootLayout
+export default RootLayout;

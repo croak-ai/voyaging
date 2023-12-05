@@ -13,21 +13,9 @@ import { useEffect } from 'react';
 export default function ChatPage() {
   const supabase = createClientComponentClient<Database>();
 
-  // useEffect(() => {
-  //   const fetchBotData = async () => {
-  //     try {
-  //       const userData = trpc.bot.botUser.useQuery();
-  //       // Process the botData or update state if needed
-  //       console.log('user Data:', userData);
-  //     } catch (error) {
-  //       // Handle error
-  //       console.error('Error fetching bot data:', error);
-  //     }
-  //   };
+  const userData = trpc.bot.botUser.useQuery();
 
-  //   fetchBotData();
-  // }, []); // empty dependency array means this will run only once when the component mounts
-
+  
   const generateEmbedding = usePipeline(
     "feature-extraction",
     "Supabase/gte-small"
