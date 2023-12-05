@@ -3,6 +3,7 @@ import { PropsWithChildren, Suspense } from "react";
 import "three-dots/dist/three-dots.css";
 import "./globals.css";
 import { Icons } from "@/components/ui/icons";
+import { trpc } from "@/utils/trpc";
 
 export const metadata = {
   title: "Create Next App",
@@ -17,7 +18,7 @@ const LoadingShip = () => {
   );
 };
 
-export default async function RootLayout({ children }: PropsWithChildren) {
+async function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className="h-full">
       <body className="h-full">
@@ -29,3 +30,5 @@ export default async function RootLayout({ children }: PropsWithChildren) {
     </html>
   );
 }
+
+export default trpc.withTRPC(RootLayout)

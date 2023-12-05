@@ -1,4 +1,4 @@
-import { botRouter } from "@/trpc/routes/bot";
+import { botRouter } from "@/trpcServer/routes/bot";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
@@ -11,11 +11,6 @@ export async function POST(request: Request) {
   const email = String(formData.get("email"));
   const password = String(formData.get("password"));
   const supabase = createRouteHandlerClient({ cookies });
-
-  const caller = botRouter.createCaller({});
-  const result = await caller.botUser("tRPC");
-
-  console.log(result)
 
   const { error } = await supabase.auth.signInWithPassword({
     email,
