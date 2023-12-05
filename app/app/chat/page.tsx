@@ -7,8 +7,8 @@ import { cn } from "@/lib/utils";
 import { Database } from "@/supabase/functions/_lib/database";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useChat } from "ai/react";
-//import { trpc } from "@/utils/trpc";
-//import { useEffect } from 'react';
+import { trpc } from "@/app/_trpc/client";
+import { useEffect } from 'react';
 
 export default function ChatPage() {
   const supabase = createClientComponentClient<Database>();
@@ -16,7 +16,7 @@ export default function ChatPage() {
   // useEffect(() => {
   //   const fetchBotData = async () => {
   //     try {
-  //       const userData = await trpc.bot.botUser.useQuery();
+  //       const userData = trpc.bot.botUser.useQuery();
   //       // Process the botData or update state if needed
   //       console.log('user Data:', userData);
   //     } catch (error) {
